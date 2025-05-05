@@ -1,18 +1,13 @@
 import cv2
 
-# Load pre-trained gender detection model
 modelFile = 'gender_net.caffemodel'
 configFile = 'gender_deploy.prototxt'
 gender_net = cv2.dnn.readNetFromCaffe(configFile, modelFile)
 
-# List of gender classes
 genders = ['Male', 'Female']
-
-# Load face detector
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-# Start video capture
-cap = cv2.VideoCapture(1)  # Use 0 or 1 based on your system
+cap = cv2.VideoCapture(1) 
 
 while True:
     ret, frame = cap.read()
